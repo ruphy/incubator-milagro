@@ -14,19 +14,19 @@ if [[ $BRANCH == "master" ]]; then
   printf "\nThe script is going to build the website now, this make take a few minutes.\n"
   npm run build # build website
 
-  TEMPDIR=$(mktemp -d)
-  mv ./build/incubator-milagro/* $TEMPDIR # copy contents of directory
-  cd $location
-  BRANCHNAME="asf-build-$(date +%s)"
-  # [[ $TREEDIRTY -eq 1 ]] && git stash
-    git checkout -b $BRANCHNAME origin/asf-site && \
-    rm -rf * && \
-    cp -r $TEMPDIR/* . && \
-    git add . && \
-    git commit -m "update website" && \
-    git checkout master
-  # [[ $TREEDIRTY -eq 1 ]] && git stash pop
-  rm -rf $TEMPDIR
+  # TEMPDIR=$(mktemp -d)
+  # mv ./build/incubator-milagro/* $TEMPDIR # copy contents of directory
+  # cd $location
+  # BRANCHNAME="asf-build-$(date +%s)"
+  # # [[ $TREEDIRTY -eq 1 ]] && git stash
+  #   git checkout -b $BRANCHNAME origin/asf-site && \
+  #   rm -rf * && \
+  #   cp -r $TEMPDIR/* . && \
+  #   git add . && \
+  #   git commit -m "update website" && \
+  #   git checkout master
+  # # [[ $TREEDIRTY -eq 1 ]] && git stash pop
+  # rm -rf $TEMPDIR
 
   echo
   echo "> site built in" $BRANCHNAME
